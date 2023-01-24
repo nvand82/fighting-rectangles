@@ -45,3 +45,17 @@ function animate(){
   rival.update('red');
 }
 animate();
+window.addEventListener("keydown",(event) =>{
+  switch(event.key){
+case'd':
+player.velocity.x=1
+break
+ }
+})
+window.addEventListener("keydown",(event) =>{
+  switch(event.key){
+case'a':
+player.velocity.x=-1
+break
+ }
+})
