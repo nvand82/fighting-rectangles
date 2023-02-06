@@ -19,6 +19,7 @@ class Sprite {
     c.fillStyle = color;
     this.draw();
     this.position.y += this.velocity.y;
+    this.position.x += this.velocity.x;
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
@@ -28,7 +29,7 @@ class Sprite {
   }
 }
 const player = new Sprite({
-  position: { x: 0, y: 300 },
+  position: { x: 100, y: 300 },
   velocity: { x: 0, y: 10},
 });
 player.draw();
@@ -48,14 +49,58 @@ animate();
 window.addEventListener("keydown",(event) =>{
   switch(event.key){
 case'd':
-player.velocity.x=1
+player.velocity.x=10
 break
- }
-})
-window.addEventListener("keydown",(event) =>{
-  switch(event.key){
 case'a':
-player.velocity.x=-1
+player.velocity.x=-10
+break 
+case's':
+player.velocity.y=10
 break
- }
+case'w':
+player.velocity.y=-10
+break
+case'ArrowRight':
+rival.velocity.x=10
+break
+case'ArrowLeft':
+rival.velocity.x=-10
+break 
+case'ArrowDown':
+rival.velocity.y=10
+break
+case'ArrowUp':
+rival.velocity.y=-10
+break
+}
+ console.log(event.key)
+})
+window.addEventListener("keyup",(event) =>{
+  switch(event.key){
+case'd':
+player.velocity.x=0
+break
+case'a':
+player.velocity.x=0
+break 
+case's':
+player.velocity.y=0
+break
+case'w':
+player.velocity.y=0
+break
+case'ArrowRight':
+rival.velocity.x=0
+break
+case'ArrowLeft':
+rival.velocity.x=0
+break 
+case'ArrowDown':
+rival.velocity.y=0
+break
+case'ArrowUp':
+rival.velocity.y=-0
+break
+}
+ console.log(event.key)
 })
