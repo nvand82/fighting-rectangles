@@ -20,9 +20,16 @@ class Sprite {
     this.draw();
     this.position.y += this.velocity.y;
     this.position.x += this.velocity.x;
-    if(this.position.x + this.width  + this.velocity.x >= canvas.width){
-      this.velocity.x = 0 
-      }
+    // right border
+    if (this.position.x >= 1000) {
+      this.velocity.x = 0;
+      this.position.x = 1000
+    }
+    // left border
+    if (this.position.x <= 0) {
+      this.velocity.x = 0;
+      this.position.x = 0;
+    }
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
