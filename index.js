@@ -64,11 +64,10 @@ break
 case'a':
 player.velocity.x=-10
 break 
-case's':
-player.velocity.y=10
-break
 case'w':
-player.velocity.y=-10
+if (player.position.y >= canvas.height - player.height){
+player.velocity.y=-100
+}
 break
 case'ArrowRight':
 rival.velocity.x=10
@@ -80,7 +79,9 @@ case'ArrowDown':
 rival.velocity.y=10
 break
 case'ArrowUp':
-rival.velocity.y=-10
+if (player.position.y >= canvas.height - player.height){
+  rival.velocity.y=-100
+  }
 break
 }
  console.log(event.key)
