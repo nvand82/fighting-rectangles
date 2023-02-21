@@ -11,9 +11,15 @@ class Sprite {
     this.position = position;
     this.velocity = velocity;
     this.height = 64;
+    this.snoBlob = {
+      position : this.position,
+      height : 10,
+      width : 40
+    }
   }
   draw() {
     c.fillRect(this.position.x, this.position.y, 32, this.height);
+    c.fillRect(this.snoBlob.position.x, this.snoBlob.position.y, this.snoBlob.width, this.snoBlob.height)
   }
   update(color){
     c.fillStyle = color;
