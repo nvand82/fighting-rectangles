@@ -60,6 +60,10 @@ function animate(){
   c.fillRect(0, 0, canvas.width, canvas.height);
   player.update('blue');
   rival.update('red');
+  //detect coilsion
+  if(player.snoBlob.position.x + player.snoBlob.width == rival.position.x){
+console.log("hit")
+  }
 }
 animate();
 window.addEventListener("keydown",(event) =>{
@@ -72,7 +76,7 @@ player.velocity.x=-10
 break 
 case'w':
 if (player.position.y >= canvas.height - player.height){
-player.velocity.y=-100
+player.velocity.y=-10
 }
 break
 case'ArrowRight':
@@ -81,12 +85,9 @@ break
 case'ArrowLeft':
 rival.velocity.x=-10
 break 
-case'ArrowDown':
-rival.velocity.y=10
-break
 case'ArrowUp':
-if (player.position.y >= canvas.height - player.height){
-  rival.velocity.y=-100
+if (rival.position.y >= canvas.height - rival.height){
+  rival.velocity.y=-10
   }
 break
 }
