@@ -8,6 +8,7 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 const gravity = .1
 class Sprite {
   constructor({ position, velocity }) {
+    //carhicter size
     this.position = position;
     this.velocity = velocity;
     this.height = 64;
@@ -18,10 +19,12 @@ class Sprite {
     }
   }
   draw() {
+    //draw constant
     c.fillRect(this.position.x, this.position.y, 32, this.height);
     c.fillRect(this.snoBlob.position.x, this.snoBlob.position.y, this.snoBlob.width, this.snoBlob.height)
   }
   update(color){
+    //what color are they
     c.fillStyle = color;
     this.draw();
     this.position.y += this.velocity.y;
@@ -36,6 +39,7 @@ class Sprite {
       this.velocity.x = 0;
       this.position.x = 0;
     }
+    //gravity
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
@@ -44,6 +48,7 @@ class Sprite {
     }
   }
 }
+//draw charicters
 const player = new Sprite({
   position: { x: 100, y: 300 },
   velocity: { x: 0, y: 10},
@@ -67,6 +72,7 @@ console.log("hit")
 }
 animate();
 window.addEventListener("keydown",(event) =>{
+  //movement
   switch(event.key){
 case'd':
 player.velocity.x=10
