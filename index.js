@@ -67,8 +67,11 @@ function animate(){
   rival.update('red');
   //detect coilsion
   if(player.snoBlob.position.x + player.snoBlob.width == rival.position.x){
-console.log("hit")
+console.log("Player-hit")
   }
+  if(rival.snoBlob.position.x + rival.snoBlob.width == player.position.x){
+    console.log("rival-hit")
+      }
 }
 animate();
 window.addEventListener("keydown",(event) =>{
