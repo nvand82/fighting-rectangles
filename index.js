@@ -5,7 +5,7 @@ const c = canvas.getContext('2d');
 canvas.width = 1024;
 canvas.height = 576;
 c.fillRect(0, 0, canvas.width, canvas.height);
-const gravity = .1
+const gravity = .2
 class Sprite {
   constructor({ position, velocity }) {
     //carhicter size
@@ -84,7 +84,8 @@ case'a':
 player.velocity.x=-10
 break 
 case'w':
-if (player.position.y >= canvas.height - player.height){
+if (player.position.y >= canvas.height - player.height ){//player.velocity.y == gravity
+  // object not falling
 player.velocity.y=-10
 }
 break
@@ -100,33 +101,41 @@ if (rival.position.y >= canvas.height - rival.height){
   }
 break
 }
- console.log(event.key)
+
 })
 window.addEventListener("keyup",(event) =>{
   switch(event.key){
 case'd':
 player.velocity.x=0
+console.log(event.key)
 break
 case'a':
 player.velocity.x=0
+console.log(event.key)
 break 
 case's':
 player.velocity.y=0
+console.log(event.key)
 break
 case'w':
 player.velocity.y=0
+console.log(event.key)
 break
 case'ArrowRight':
 rival.velocity.x=0
+console.log(event.key)
 break
 case'ArrowLeft':
 rival.velocity.x=0
+console.log(event.key)
 break 
 case'ArrowDown':
 rival.velocity.y=0
+console.log(event.key)
 break
 case'ArrowUp':
 rival.velocity.y=-0
+console.log(event.key)
 break
 }
  console.log(event.key)
