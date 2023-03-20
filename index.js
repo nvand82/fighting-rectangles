@@ -84,9 +84,10 @@ case'a':
 player.velocity.x=-10
 break 
 case'w':
-if (player.position.y >= canvas.height - player.height ){//player.velocity.y == gravity
+if (player.position.y >= canvas.height - player.height || player.velocity.y <= -10){//player.velocity.y < gravity
   // object not falling
 player.velocity.y=-10
+console.log(player.velocity.y)
 }
 break
 case'ArrowRight':
