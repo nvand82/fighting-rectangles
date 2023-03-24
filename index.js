@@ -66,10 +66,10 @@ function animate(){
   player.update('blue');
   rival.update('red');
   //detect coilsion
-  if(player.snoBlob.position.x + player.snoBlob.width == rival.position.x){
+  if(player.snoBlob.position.x + player.snoBlob.width == rival.position.x && player.snoBlob.position.y == rival.position.y){
 console.log("Player-hit")
   }
-  if(rival.snoBlob.position.x + rival.snoBlob.width == player.position.x){
+  if(rival.snoBlob.position.x + rival.snoBlob.width == player.position.x && rival.snoBlob.position.y == player.position.y){
     console.log("rival-hit")
       }
 }
