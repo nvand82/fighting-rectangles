@@ -84,7 +84,7 @@ case'a':
 player.velocity.x=-10
 break 
 case'w':
-if (player.position.y >= canvas.height - player.height || player.velocity.y <= -10){//player.velocity.y < gravity
+if (player.position.y >= canvas.height - player.height){//player.velocity.y < gravity
   // object not falling
 player.velocity.y=-10
 console.log(player.velocity.y)
@@ -118,8 +118,6 @@ case's':
 player.velocity.y=0
 console.log(event.key)
 break
-case'w':
-player.velocity.y=0
 console.log(event.key)
 break
 case'ArrowRight':
@@ -134,8 +132,6 @@ case'ArrowDown':
 rival.velocity.y=0
 console.log(event.key)
 break
-case'ArrowUp':
-rival.velocity.y=-0
 console.log(event.key)
 break
 }
