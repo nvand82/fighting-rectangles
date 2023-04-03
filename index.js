@@ -22,6 +22,8 @@ class Sprite {
     //draw constant
     c.fillRect(this.position.x, this.position.y, 32, this.height);
     c.fillRect(this.snoBlob.position.x, this.snoBlob.position.y, this.snoBlob.width, this.snoBlob.height)
+    c.fillStyle = ("white")
+    c.fillRect(canvas.width/2, canvas.height/2, 64, 32);
   }
   update(color){
     //what color are they
