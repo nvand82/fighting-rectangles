@@ -45,6 +45,9 @@ class Sprite {
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
+    if(this.position.y + this.height < canvas.height/2 && this.position.y + this.height > canvas.height/2 - 32){
+      this.velocity.y = 0
+    }
     else{
       this.velocity.y += gravity
     }
@@ -88,7 +91,7 @@ break
 case'w':
 if (player.position.y >= canvas.height - player.height){//player.velocity.y < gravity
   // object not falling
-player.velocity.y=-10
+player.velocity.y=-12
 console.log(player.velocity.y)
 }
 break
