@@ -41,11 +41,12 @@ class Sprite {
       this.velocity.x = 0;
       this.position.x = 0;
     }
-    //gravity this.position.x + this.width <= canvas.width/2
+    //gravity this.position.x - this.width <= canvas.width/2
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
-    else if(this.position.y + this.height < canvas.height/2 && this.position.y + this.height > canvas.height/2 - 32 ){
+    else if(this.position.y + this.height < canvas.height/2 && this.position.y + this.height > canvas.height/2 - 32 && this.position.x >= canvas.width/2 &&
+      this.position.x <= canvas.width/2+64){
       this.velocity.y = 0
     }
     else{
