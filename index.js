@@ -45,9 +45,9 @@ class Sprite {
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
-    else if(this.position.y + this.height < canvas.height/2 && this.position.y + this.height > canvas.height/2 - 32 && this.position.x >= canvas.width/2 &&
+    else if(this.position.y + this.height < canvas.height/2 - 2 && this.position.y + this.height > canvas.height/2 - 32 && this.position.x >= canvas.width/2-32 &&
       this.position.x <= canvas.width/2+64){
-      this.velocity.y = 0
+        this.velocity.y = 0
     }
     else{
       this.velocity.y += gravity
@@ -85,15 +85,15 @@ window.addEventListener("keydown",(event) =>{
   //movement
   switch(event.key){
 case'd':
-player.velocity.x=1
+player.velocity.x=10
 break
 case'a':
-player.velocity.x=-1
+player.velocity.x=-10
 break 
 case'w':
 if (player.position.y >= canvas.height - player.height){//player.velocity.y < gravity
   // object not falling
-player.velocity.y=-12
+player.velocity.y=-10.7
 console.log(player.velocity.y)
 }
 break
@@ -105,7 +105,7 @@ rival.velocity.x=-10
 break 
 case'ArrowUp':
 if (rival.position.y >= canvas.height - rival.height){
-  rival.velocity.y=-10
+  rival.velocity.y=-10.7
   }
 break
 }
