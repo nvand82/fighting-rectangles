@@ -59,9 +59,8 @@ class SnoBlob {
   }
   draw() {
     //draw constant
-    c.fillRect(this.position.x, this.position.y, 32, 16)
     c.fillStyle = ("white")
-    
+    c.fillRect(this.position.x, this.position.y, 32, 16)
   }
   update(color){
     //what color are they
@@ -70,27 +69,7 @@ class SnoBlob {
     this.position.y += this.velocity.y;
     this.position.x += this.velocity.x;
     // right border
-    if (this.position.x >= 1000) {
-      this.velocity.x = 0;
-      this.position.x = 1000
-    }
-    // left border
-    if (this.position.x <= 0) {
-      this.velocity.x = 0;
-      this.position.x = 0;
-    }
     //gravity this.position.x - this.width <= canvas.width/2
-    if(this.position.y + this.height  + this.velocity.y >= canvas.height){
-    this.velocity.y = 0 
-    }
-    else if(this.position.y + this.height < canvas.height/2 - 2 && this.position.y + this.height > canvas.height/2 - 32 && this.position.x >= canvas.width/2-32 &&
-      this.position.x <= canvas.width/2+64){
-        this.velocity.y = 0
-    }
-    else{
-      this.velocity.y += gravity
-      console.log(this.position.x)
-    }
   }
 }
 //draw charicters
@@ -109,17 +88,24 @@ const PlayerSnoBlob = new SnoBlob({
   velocity: { x:0, y:0}
 });
  PlayerSnoBlob.draw();
+ const RivalSnoBlob = new SnoBlob({
+  position: { x: -30, y: 0},
+  velocity: { x:0, y:0}
+});
+ RivalSnoBlob.draw();
 function animate(){
   window.requestAnimationFrame(animate);
   c.fillStyle = 'black';
   c.fillRect(0, 0, canvas.width, canvas.height);
   player.update('blue');
   rival.update('red');
+  PlayerSnoBlob.update('sky-blue')
+  RivalSnoBlob.update('pink')
   //detect coilsion
-  if(player.snoBlob.position.x + player.snoBlob.width == rival.position.x && player.snoBlob.position.y == rival.position.y){
+  if(PlayerSnoBlob.position.x + PlayerSnoBlob.width == rival.position.x && PlayerSnoBlob.position.y == rival.position.y){
 console.log("Player-hit")
   }
-  if(rival.snoBlob.position.x + rival.snoBlob.width == player.position.x && rival.snoBlob.position.y == player.position.y){
+  if(RivalSnoBlob.position.x + RivalSnoBlob.width == player.position.x && RivalSnoBlob.position.y == player.position.y){
     console.log("rival-hit")
       }
 }
@@ -144,12 +130,14 @@ console.log(player.velocity.y)
 break
 case's':
 if(playerDirect == 0){ 
-  PlayerSnoBlob.velocity.x =+ 15
   PlayerSnoBlob.position.y = player.position.y
   PlayerSnoBlob.position.x = player.position.x
+  PlayerSnoBlob.velocity.x = 15
 }
 else{
-  console.log(playerDirect)
+  PlayerSnoBlob.position.y = player.position.y
+  PlayerSnoBlob.position.x = player.position.x
+  PlayerSnoBlob.velocity.x = -15
 }
 case'ArrowRight':
 rival.velocity.x=10
@@ -166,10 +154,14 @@ if (rival.position.y >= canvas.height - rival.height){
 break
 case'ArrowDown':
   if(rivalDirect == 0){
-    // snoblob right
+    RivalSnoBlob.position.y = rival.position.y
+    RivalSnoBlob.position.x = rival.position.x
+    RivalSnoBlob.velocity.x = 15
   }
   else{
-    // left
+    RivalSnoBlob.position.y = rival.position.y
+    RivalSnoBlob.position.x = rival.position.x
+    RivalSnoBlob.velocity.x = -15
   }
   break
 }
