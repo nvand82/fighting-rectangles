@@ -139,6 +139,7 @@ else{
   PlayerSnoBlob.position.x = player.position.x
   PlayerSnoBlob.velocity.x = -15
 }
+break
 case'ArrowRight':
 rival.velocity.x=10
 rivalDirect = 0
