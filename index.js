@@ -6,6 +6,8 @@ canvas.width = 1024;
 canvas.height = 576;
 var playerDirect = 0
 var rivalDirect = 1
+var pHealth = 450;
+var rHealth = 450;
 c.fillRect(0, 0, canvas.width, canvas.height);
 const gravity = .2
 class Sprite {
@@ -99,14 +101,23 @@ function animate(){
   c.fillRect(0, 0, canvas.width, canvas.height);
   player.update('blue');
   rival.update('red');
-  PlayerSnoBlob.update('sky-blue')
-  RivalSnoBlob.update('pink')
+  PlayerSnoBlob.update('blue')
+  RivalSnoBlob.update('red')
   //detect coilsion
-  if(PlayerSnoBlob.position.x + PlayerSnoBlob.width == rival.position.x && PlayerSnoBlob.position.y == rival.position.y){
+  if(PlayerSnoBlob.position.x >= rival.position.x && 
+    PlayerSnoBlob.position.x <= rival.position.x + 32 && 
+     PlayerSnoBlob.position.y == rival.position.y){
 console.log("Player-hit")
+pHealth -= 45;
+    document.getElementById('enemyHealth').style.width =
+      pHealth.toString() + 'px';
   }
-  if(RivalSnoBlob.position.x + RivalSnoBlob.width == player.position.x && RivalSnoBlob.position.y == player.position.y){
+if(RivalSnoBlob.position.x  >= player.position.x && RivalSnoBlob.position.x    <= player.position.x + 32 &&
+   RivalSnoBlob.position.y == player.position.y){
     console.log("rival-hit")
+    rHealth -= 45;
+    document.getElementById('playerHealth').style.width =
+      rHealth.toString() + 'px';
       }
 }
 animate();
