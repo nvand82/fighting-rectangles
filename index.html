@@ -1,5 +1,7 @@
 
 <body>
+<script scr="index.js">
+</script>
   <div id="app"></div>
   <!-- red container div -->
   <div style="position: relative; display: inline-block">
@@ -18,9 +20,9 @@
         style="
           position: relative;
           width: 450px;
-          border-top: 7px solid brown;
-          border-left: 3px solid brown;
-          border-bottom: 7px solid brown;
+          border-top: 7px solid #993608;
+          border-left: 5px solid brown;
+          border-bottom: 7px solid #331304;
         "
       >
         <div style="background-color: gray; height: 30px; width: 100%"></div>
@@ -42,14 +44,18 @@
         id="divide"
         style="
           background-color: white;
-          width: 75px;
+          width: 65px;
           height: 50px;
           flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
           color: teal;
-          border: 10px solid lime;
+          border-left: 10px solid lime;
+          border-right: 10px solid lime;
+          border-top: 7px solid #92e89f;
+          border-bottom: 7px solid green;
+          font-size: 12px;
         "
       >SNO-BRAWL</div>
       <!-- enemy health -->
@@ -57,9 +63,9 @@
         style="
           position: relative;
           width: 450px;
-          border-top: 7px solid purple;
-          border-bottom: 7px solid purple;
-          border-right: 3px solid purple;
+          border-top: 7px solid #af0be0;
+          border-bottom: 7px solid #5c0466;
+          border-right: 5px solid purple;
         "
       >
         <div style="background-color: gray; height: 30px"></div>
@@ -90,11 +96,12 @@
         left: 0;
         dislay: none;
       "
-    ></div>
+    >
+    <button onclick="startGame();">
+      start game
+    </button>
+  </div>
 
     <canvas></canvas>
   </div>
-
-  <script scr="index.js">
-  </script>
 </body>

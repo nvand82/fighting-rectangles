@@ -4,11 +4,12 @@ const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 canvas.width = 1024;
 canvas.height = 576;
+c.fillRect(0, 0, canvas.width, canvas.height);
+function startGame();{
 var playerDirect = 0
 var rivalDirect = 1
 var pHealth = 450;
 var rHealth = 450;
-c.fillRect(0, 0, canvas.width, canvas.height);
 const gravity = .2
 class Sprite {
   constructor({ position, velocity }) {
@@ -192,7 +193,6 @@ case's':
 player.velocity.y=0
 console.log(event.key)
 break
-console.log(event.key)
 break
 case'ArrowRight':
 rival.velocity.x=0
@@ -206,8 +206,8 @@ case'ArrowDown':
 rival.velocity.y=0
 console.log(event.key)
 break
-console.log(event.key)
 break
 }
  console.log(event.key)
 })
+}
