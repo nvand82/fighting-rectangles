@@ -12,7 +12,7 @@ var pHealth = 450;
 var rHealth = 450;
 const gravity = .2
 const playerImage = new Image();
-playerImage.scr = 'Player.png';
+playerImage.scr = 'New Piskel (2).png';
 const rivalImage = new Image();
 rivalImage.scr = 'Rival.png';
 class Sprite {
