@@ -5,16 +5,16 @@
  canvas.width = 1024;
  canvas.height = 576;
  c.fillRect(0, 0, canvas.width, canvas.height);
- //function startGame();{
+//function startGame();{
 var playerDirect = 0
 var rivalDirect = 1
 var pHealth = 450;
 var rHealth = 450;
 const gravity = .2
 const playerImage = new Image();
-playerImage.scr = 'New Piskel (2).png';
+playerImage.scr = ('player.png');
 const rivalImage = new Image();
-rivalImage.scr = 'Rival.png';
+rivalImage.scr = ('rival.png');
 class Sprite {
   constructor({ position, velocity }) {
     //carhicter size
