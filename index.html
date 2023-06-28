@@ -52,8 +52,8 @@ class Sprite {
     if(this.position.y + this.height  + this.velocity.y >= canvas.height){
     this.velocity.y = 0 
     }
-    else if(this.position.y + this.height < canvas.height/2 - 2 && this.position.y + this.height > 288 - 32 && this.position.x >= 288-32 &&
-      this.position.x <= 512+64){
+    else if(this.position.y + this.height < canvas.height/2 && this.position.y + this.height > canvas.height/2 - 32 && this.position.x >= canvas.width/2-32 &&
+      this.position.x <= canvas.width/2+64){
         this.velocity.y = 0
     }
     else{
@@ -317,7 +317,20 @@ break
       start game
     </button>
   </div>
-
+  <div id="displayBlueW"
+  style="
+  width: 1052px;
+  height: 1000px;
+  background-color: blue;
+  display: flex;
+  position: sticky;
+  color: purple;
+  "> 
+  <div
+   style="color: purple;">
+Blue Wins!!!
+  </div>
+</div>
     <canvas></canvas>
   </div>
 </body>
