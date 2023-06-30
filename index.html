@@ -26,9 +26,9 @@ class Sprite {
   }
   drawing(){
     const playerImage = new Image();
-  playerImage.src = ('data:image/jpeg;base64,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');
+  playerImage.src = ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRsR2Ok4k8N70Z6Eq6Ch1AJwMIKBJstSvIA&usqp=CAU');
     //draw constant
-    c.drawImage(playerImage, 0, 0, 32, 64, this.position.x, this.position.y, 32, 64);
+    c.drawImage(playerImage, this.position.x, this.position.y, 32, 64);
     c.fillStyle = "white"
     c.fillRect(512, 288, 64, 32);
   }
@@ -113,16 +113,19 @@ function animate(){
   PlayerSnoBlob.update('blue')
   RivalSnoBlob.update('red')
   //detect coilsion
-  if(PlayerSnoBlob.position.x >= rival.position.x && 
-    PlayerSnoBlob.position.x <= rival.position.x + 32 && 
-     PlayerSnoBlob.position.y == rival.position.y){
+  if(PlayerSnoBlob.position.x + 5 >= rival.position.x &&
+PlayerSnoBlob.position.x <= rival.position.x + 64 &&
+PlayerSnoBlob.position.y >= rival.position.y &&
+PlayerSnoBlob.position.y + 5 <= rival.position.y + 64){
 console.log("Player-hit")
 pHealth -= 45;
     document.getElementById('enemyHealth').style.width =
       pHealth.toString() + 'px';
   }
-if(RivalSnoBlob.position.x  >= player.position.x && RivalSnoBlob.position.x <= player.position.x + 32 &&
-   RivalSnoBlob.position.y == player.position.y){
+if(RivalSnoBlob.position.x + 5 >= player.position.x &&
+RivalSnoBlob.position.x <= player.position.x + 32 &&
+RivalSnoBlob.position.y >= player.position.y &&
+RivalSnoBlob.position.y + 5 <= player.position.y + 64){
     console.log("rival-hit")
     rHealth -= 45;
     document.getElementById('playerHealth').style.width =
@@ -322,14 +325,10 @@ break
   width: 1052px;
   height: 1000px;
   background-color: blue;
-  display: flex;
+  display: none;
   position: sticky;
   color: purple;
   "> 
-  <div
-   style="color: purple;">
-Blue Wins!!!
-  </div>
 </div>
     <canvas></canvas>
   </div>
