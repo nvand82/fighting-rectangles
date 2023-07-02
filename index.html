@@ -3,6 +3,7 @@
 <script scr="index.js">
   //Import stylesheets
 function startGame(){
+  
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 canvas.width = 1024;
@@ -12,6 +13,10 @@ var playerDirect = 0
 var rivalDirect = 1
 var pHealth = 450;
 var rHealth = 450;
+document.getElementById('playerHealth').style.width =
+rHealth.toString() + 'px';
+document.getElementById('enemyHealth').style.width =
+pHealth.toString() + 'px';
 const gravity = .2
 //const playerImage = new Image();
 //playerImage.src = ('download.jpg');
@@ -152,6 +157,9 @@ console.log(player.velocity.y)
 }
 break
 case's':
+document.querySelector("#displayBlueW").style.display = "flex";
+  document.querySelector("canvas").style.display = "none";
+  
 if(playerDirect == 0){ 
   PlayerSnoBlob.position.y = player.position.y
   PlayerSnoBlob.position.x = player.position.x
@@ -177,6 +185,8 @@ if (rival.position.y >= canvas.height - rival.height){
   }
 break
 case'ArrowDown':
+document.querySelector("#displayRedW").style.display = "flex";
+document.querySelector("canvas").style.display = "none";
   if(rivalDirect == 0){
     RivalSnoBlob.position.y = rival.position.y
     RivalSnoBlob.position.x = rival.position.x
@@ -223,7 +233,7 @@ break
 </script>
   <div id="app"></div>
   <!-- red container div -->
-  <div style="position: relative; display: inline-block">
+  <div id = health-bar style="position: relative; display: inline-block">
     <!-- smaller red container div -->
     <div
       style="
@@ -323,12 +333,26 @@ break
   <div id="displayBlueW"
   style="
   width: 1052px;
-  height: 1000px;
+  height: 576px;
   background-color: blue;
   display: none;
-  position: sticky;
+  color: brown;
+  justify-content: center;
+  font-size: 100px;
+  align-items: center;
+  "> Blue Wins!
+</div>
+<div id="displayRedW"
+  style="
+  width: 1052px;
+  height: 576px;
+  background-color: red;
+  display: none;
   color: purple;
-  "> 
+  justify-content: center;
+  font-size: 100px;
+  align-items: center;
+  "> Red Wins!
 </div>
     <canvas></canvas>
   </div>
