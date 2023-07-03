@@ -3,7 +3,11 @@
 <script scr="index.js">
   //Import stylesheets
 function startGame(){
-  
+  document.querySelector("#start-button").innerHTML = "Restart";
+  document.querySelector("#displayBlueW").style.display = "none";
+  document.querySelector("#displayRedW").style.display = "none";
+  document.querySelector("#displayStart").style.display = "none";
+document.querySelector("canvas").style.display = "flex";
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 canvas.width = 1024;
@@ -122,19 +126,29 @@ function animate(){
 PlayerSnoBlob.position.x <= rival.position.x + 64 &&
 PlayerSnoBlob.position.y >= rival.position.y &&
 PlayerSnoBlob.position.y + 5 <= rival.position.y + 64){
-console.log("Player-hit")
 pHealth -= 45;
+console.log(pHealth)
     document.getElementById('enemyHealth').style.width =
       pHealth.toString() + 'px';
+      if(pHealth <= 0){
+document.querySelector("#displayBlueW").style.display = "flex";
+document.querySelector("canvas").style.display = "none";
+rival.position.y = canvas.height + 64
+}
   }
 if(RivalSnoBlob.position.x + 5 >= player.position.x &&
 RivalSnoBlob.position.x <= player.position.x + 32 &&
 RivalSnoBlob.position.y >= player.position.y &&
 RivalSnoBlob.position.y + 5 <= player.position.y + 64){
-    console.log("rival-hit")
     rHealth -= 45;
+    console.log(rHealth)
     document.getElementById('playerHealth').style.width =
       rHealth.toString() + 'px';
+      if(rHealth <= 0){
+document.querySelector("#displayRedW").style.display = "flex";
+document.querySelector("canvas").style.display = "none";
+rival.position.y = canvas.height + 64
+}
       }
 }
 animate();
@@ -157,8 +171,6 @@ console.log(player.velocity.y)
 }
 break
 case's':
-document.querySelector("#displayBlueW").style.display = "flex";
-  document.querySelector("canvas").style.display = "none";
   
 if(playerDirect == 0){ 
   PlayerSnoBlob.position.y = player.position.y
@@ -185,8 +197,6 @@ if (rival.position.y >= canvas.height - rival.height){
   }
 break
 case'ArrowDown':
-document.querySelector("#displayRedW").style.display = "flex";
-document.querySelector("canvas").style.display = "none";
   if(rivalDirect == 0){
     RivalSnoBlob.position.y = rival.position.y
     RivalSnoBlob.position.x = rival.position.x
@@ -233,9 +243,9 @@ break
 </script>
   <div id="app"></div>
   <!-- red container div -->
-  <div id = health-bar style="position: relative; display: inline-block">
+  <div style="position: relative; display: inline-block">
     <!-- smaller red container div -->
-    <div
+    <div id = health-bar
       style="
         position: absolute;
         display: flex;
@@ -326,7 +336,7 @@ break
         dislay: none;
       "
     >
-    <button onclick="startGame();">
+    <button id = "start-button" onclick="startGame();">
       start game
     </button>
   </div>
@@ -353,6 +363,19 @@ break
   font-size: 100px;
   align-items: center;
   "> Red Wins!
+</div>
+<div id="displayStart"
+  style="
+  width: 1052px;
+  height: 576px;
+  background-color: black;
+  display: flex;
+  color: white;
+  justify-content: center;
+  font-size: 100px;
+  align-items: center;
+  "> ///////click the button\\\\\\\
+    ////////////to start\\\\\\\\\\\\\\\
 </div>
     <canvas></canvas>
   </div>
