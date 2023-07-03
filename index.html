@@ -1,4 +1,8 @@
-
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">  
+</head>
 <body>
 <script scr="index.js">
   //Import stylesheets
@@ -34,10 +38,8 @@ class Sprite {
     this.height = 64;
   }
   drawing(){
-    const playerImage = new Image();
-  playerImage.src = ('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRsR2Ok4k8N70Z6Eq6Ch1AJwMIKBJstSvIA&usqp=CAU');
     //draw constant
-    c.drawImage(playerImage, this.position.x, this.position.y, 32, 64);
+    c.fillRect(this.position.x, this.position.y, 32, 64);
     c.fillStyle = "white"
     c.fillRect(512, 288, 64, 32);
   }
@@ -122,35 +124,36 @@ function animate(){
   PlayerSnoBlob.update('blue')
   RivalSnoBlob.update('red')
   //detect coilsion
-  if(PlayerSnoBlob.position.x + 5 >= rival.position.x &&
-PlayerSnoBlob.position.x <= rival.position.x + 64 &&
-PlayerSnoBlob.position.y >= rival.position.y &&
-PlayerSnoBlob.position.y + 5 <= rival.position.y + 64){
+  if(PlayerSnoBlob.position.x + 16 >= rival.position.x &&
+PlayerSnoBlob.position.x <= rival.position.x + 32 &&
+PlayerSnoBlob.position.y >= rival.position.y - 8 &&
+PlayerSnoBlob.position.y + 8 <= rival.position.y + 64+ 8){
 pHealth -= 45;
 console.log(pHealth)
     document.getElementById('enemyHealth').style.width =
       pHealth.toString() + 'px';
+  }
+if(RivalSnoBlob.position.x + 5 >= player.position.x &&
+RivalSnoBlob.position.x <= player.position.x + 32 &&
+RivalSnoBlob.position.y >= player.position.y -8 &&
+RivalSnoBlob.position.y + 8<= player.position.y + 64 + 8){
+    rHealth -= 45;
+    console.log(rHealth)
+    document.getElementById('playerHealth').style.width =
+      rHealth.toString() + 'px';
+      }
       if(pHealth <= 0){
 document.querySelector("#displayBlueW").style.display = "flex";
 document.querySelector("canvas").style.display = "none";
 rival.position.y = canvas.height + 64
 }
-  }
-if(RivalSnoBlob.position.x + 5 >= player.position.x &&
-RivalSnoBlob.position.x <= player.position.x + 32 &&
-RivalSnoBlob.position.y >= player.position.y &&
-RivalSnoBlob.position.y + 5 <= player.position.y + 64){
-    rHealth -= 45;
-    console.log(rHealth)
-    document.getElementById('playerHealth').style.width =
-      rHealth.toString() + 'px';
-      if(rHealth <= 0){
+if(rHealth <= 0){
 document.querySelector("#displayRedW").style.display = "flex";
 document.querySelector("canvas").style.display = "none";
 rival.position.y = canvas.height + 64
 }
-      }
 }
+
 animate();
 window.addEventListener("keydown",(event) =>{
   //movement
@@ -170,8 +173,7 @@ player.velocity.y=-10.68
 console.log(player.velocity.y)
 }
 break
-case's':
-  
+case's': 
 if(playerDirect == 0){ 
   PlayerSnoBlob.position.y = player.position.y
   PlayerSnoBlob.position.x = player.position.x
@@ -243,7 +245,7 @@ break
 </script>
   <div id="app"></div>
   <!-- red container div -->
-  <div style="position: relative; display: inline-block">
+  <div style="font-family: 'Rubik Glitch', cursive; position: relative; display: inline-block">
     <!-- smaller red container div -->
     <div id = health-bar
       style="
@@ -296,7 +298,7 @@ break
           border-bottom: 7px solid green;
           font-size: 12px;
         "
-      >SNO-BRAWL</div>
+      >SNO BRAWL</div>
       <!-- enemy health -->
       <div
         style="
@@ -369,13 +371,21 @@ break
   width: 1052px;
   height: 576px;
   background-color: black;
-  display: flex;
+  display: inline-block;
   color: white;
   justify-content: center;
-  font-size: 102px;
+  font-size: 105px;
   align-items: center;
-  "> ///////click the button\\\\\\\
-    ////////////to start\\\\\\\\\\\\\\\
+  text-align: center;
+  ">
+  <br>click the button 
+      <br>
+      to start
+      <p style="font-size: 30px;">
+        wasd to control blue<br> 
+        arrows to control red <br>
+        down to attack 
+      </p>
 </div>
     <canvas></canvas>
   </div>
