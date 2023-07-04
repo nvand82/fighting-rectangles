@@ -1,4 +1,19 @@
 <head>
+  <style>.button {
+    background-color: white;
+    border: none;
+    color: blue;
+    width: 77.6%;
+    height: 100px;
+    text-align: center;
+    text-decoration: underline overline;
+    display: inline-block;
+    font-size: 15px;
+  }
+  .button:hover {
+  background-color: blue;
+  color: white;
+}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">  
@@ -7,7 +22,11 @@
 <script scr="index.js">
   //Import stylesheets
 function startGame(){
+  var pHealth = 450;
+  var rHealth = 450;
   document.querySelector("#start-button").innerHTML = "Restart";
+  document.querySelector("#start-button").style.width = "100%";
+  document.querySelector("#start-button").style.height = "20px";
   document.querySelector("#displayBlueW").style.display = "none";
   document.querySelector("#displayRedW").style.display = "none";
   document.querySelector("#displayStart").style.display = "none";
@@ -19,8 +38,6 @@ canvas.height = 576;
 c.fillRect(0, 0, canvas.width, canvas.height);
 var playerDirect = 0
 var rivalDirect = 1
-var pHealth = 450;
-var rHealth = 450;
 document.getElementById('playerHealth').style.width =
 rHealth.toString() + 'px';
 document.getElementById('enemyHealth').style.width =
@@ -338,7 +355,7 @@ break
         dislay: none;
       "
     >
-    <button id = "start-button" onclick="startGame();">
+    <button id = "start-button" class = "button" onclick="startGame();">
       start game
     </button>
   </div>
