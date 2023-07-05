@@ -19,18 +19,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">  
 </head>
 <body>
-<script scr="index.js">
+<script src="index.js">
   //Import stylesheets
 function startGame(){
   var pHealth = 450;
   var rHealth = 450;
+  document.querySelector("#displayBlueW").style.color = "red";
+  document.querySelector("#displayRedW").style.display = "none";
   document.querySelector("#start-button").innerHTML = "Restart";
   document.querySelector("#start-button").style.width = "100%";
   document.querySelector("#start-button").style.height = "20px";
-  document.querySelector("#displayBlueW").style.display = "none";
-  document.querySelector("#displayRedW").style.display = "none";
   document.querySelector("#displayStart").style.display = "none";
-document.querySelector("canvas").style.display = "flex";
+  console.log("started")
+  document.querySelector("canvas").style.display = "inline-block";
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 canvas.width = 1024;
@@ -159,15 +160,20 @@ RivalSnoBlob.position.y + 8<= player.position.y + 64 + 8){
     document.getElementById('playerHealth').style.width =
       rHealth.toString() + 'px';
       }
-      if(pHealth <= 0){
+      if(pHealth <= 0 && rHealth <= 0){
+
+      }
+      else if(pHealth <= 0){
 document.querySelector("#displayBlueW").style.display = "flex";
 document.querySelector("canvas").style.display = "none";
 rival.position.y = canvas.height + 64
+document.querySelector("#start-button").style.display = "none";
 }
-if(rHealth <= 0){
+else if(rHealth <= 0){
 document.querySelector("#displayRedW").style.display = "flex";
 document.querySelector("canvas").style.display = "none";
 rival.position.y = canvas.height + 64
+document.querySelector("#start-button").style.display = "none";
 }
 }
 
@@ -308,6 +314,7 @@ break
           display: flex;
           align-items: center;
           justify-content: center;
+          text-align: center;
           color: teal;
           border-left: 10px solid lime;
           border-right: 10px solid lime;
@@ -352,7 +359,7 @@ break
         right: 0;
         bottom: 20;
         left: 0;
-        dislay: none;
+        display: block;
       "
     >
     <button id = "start-button" class = "button" onclick="startGame();">
