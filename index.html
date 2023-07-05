@@ -20,17 +20,18 @@
 </head>
 <body>
 <script src="index.js">
-  //Import stylesheets
-function startGame(){
   var pHealth = 450;
   var rHealth = 450;
-  document.querySelector("#displayBlueW").style.color = "red";
+  //Import stylesheets
+function startGame(){
+  pHealth = 450;
+  rHealth = 450;
+  document.querySelector("#displayBlueW").style.display = "none";
   document.querySelector("#displayRedW").style.display = "none";
   document.querySelector("#start-button").innerHTML = "Restart";
   document.querySelector("#start-button").style.width = "100%";
   document.querySelector("#start-button").style.height = "20px";
   document.querySelector("#displayStart").style.display = "none";
-  console.log("started")
   document.querySelector("canvas").style.display = "inline-block";
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
@@ -146,7 +147,7 @@ function animate(){
 PlayerSnoBlob.position.x <= rival.position.x + 32 &&
 PlayerSnoBlob.position.y >= rival.position.y - 8 &&
 PlayerSnoBlob.position.y + 8 <= rival.position.y + 64+ 8){
-pHealth -= 45;
+pHealth -= 15;
 console.log(pHealth)
     document.getElementById('enemyHealth').style.width =
       pHealth.toString() + 'px';
@@ -155,7 +156,7 @@ if(RivalSnoBlob.position.x + 5 >= player.position.x &&
 RivalSnoBlob.position.x <= player.position.x + 32 &&
 RivalSnoBlob.position.y >= player.position.y -8 &&
 RivalSnoBlob.position.y + 8<= player.position.y + 64 + 8){
-    rHealth -= 45;
+    rHealth -= 15;
     console.log(rHealth)
     document.getElementById('playerHealth').style.width =
       rHealth.toString() + 'px';
@@ -167,13 +168,12 @@ RivalSnoBlob.position.y + 8<= player.position.y + 64 + 8){
 document.querySelector("#displayBlueW").style.display = "flex";
 document.querySelector("canvas").style.display = "none";
 rival.position.y = canvas.height + 64
-document.querySelector("#start-button").style.display = "none";
+RivalSnoBlob.position.y = canvas.height + 64
 }
 else if(rHealth <= 0){
 document.querySelector("#displayRedW").style.display = "flex";
 document.querySelector("canvas").style.display = "none";
 rival.position.y = canvas.height + 64
-document.querySelector("#start-button").style.display = "none";
 }
 }
 
