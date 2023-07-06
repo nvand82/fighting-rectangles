@@ -45,16 +45,6 @@ rHealth.toString() + 'px';
 document.getElementById('enemyHealth').style.width =
 pHealth.toString() + 'px';
 const gravity = .2
-const playerImage = new Image();
-playerImage.src = ('https://lopsidedshyhypercard--nvand82.repl.co/Player.png');
-var frameX = 0
-//var PlayerFrameY = 0
-//var RivalFrameY = 0
-var frameY = 0
-var gameFrame = 0
-const staggerFrame = 15
-const rivalImage = new Image();
-rivalImage.src = ('https://lopsidedshyhypercard--nvand82.repl.co/Rival.png');
 class Sprite {
   constructor({ position, velocity }) {
     //carhicter size
@@ -64,20 +54,7 @@ class Sprite {
   }
   drawing(image){
     //draw constant
-    c.drawImage(image,32*frameX,64*frameY,32, 64, this.position.x, this.position.y, 32, 64);
-    if(gameFrame % staggerFrame == 0){
-    if(frameX < 2){
-      frameX++
-      gameFrame++
-    }
-    else{
-      frameX = 0
-      gameFrame++
-    }
-  }
-  else{
-    gameFrame++
-  }
+    c.fillRect(this.position.x, this.position.y, 32, 64);
   c.fillStyle = "white"
     c.fillRect(512, 288, 64, 32);
   }
@@ -137,12 +114,12 @@ const player = new Sprite({
   position: { x: 100, y: 300 },
   velocity: { x: 0, y: 10},
 });
-player.drawing(playerImage);
+player.drawing();
 const rival = new Sprite({
   position: { x:992, y: 300 },
   velocity: { x: 0, y: 10},
 });
-rival.drawing(rivalImage);
+rival.drawing();
 const PlayerSnoBlob = new SnoBlob({
   position: { x:-30, y:0},
   velocity: { x:0, y:0}
@@ -218,7 +195,6 @@ console.log(player.velocity.y)
 }
 break
 case's': 
-frameY = 2
 if(playerDirect == 0){ 
   PlayerSnoBlob.position.y = player.position.y
   PlayerSnoBlob.position.x = player.position.x
@@ -262,17 +238,15 @@ window.addEventListener("keyup",(event) =>{
 case'd':
 player.velocity.x=0
 console.log(event.key)
-frameY = 0
+
 break
 case'a':
 player.velocity.x=0
 console.log(event.key)
-frameY = 0
 break 
 case's':
 player.velocity.y=0
 console.log(event.key)
-frameY = 0
 break
 case'ArrowRight':
 rival.velocity.x=0
