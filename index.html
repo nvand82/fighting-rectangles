@@ -96,7 +96,6 @@ class SnoBlob {
   }
   drawing() {
     //draw constant
-    c.fillStyle = ("white")
     c.fillRect(this.position.x, this.position.y, 32, 16)
   }
   update(color){
@@ -136,14 +135,14 @@ function animate(){
   c.fillRect(0, 0, canvas.width, canvas.height);
   player.update('blue');
   rival.update('red');
-  PlayerSnoBlob.update('blue')
-  RivalSnoBlob.update('red')
+  PlayerSnoBlob.update('#54320b');
+  RivalSnoBlob.update('#9206cf');
   //detect coilsion
   if(PlayerSnoBlob.position.x + 16 >= rival.position.x &&
 PlayerSnoBlob.position.x <= rival.position.x + 32 &&
 PlayerSnoBlob.position.y >= rival.position.y - 8 &&
 PlayerSnoBlob.position.y + 8 <= rival.position.y + 64+ 8){
-pHealth -= 15;
+pHealth -= 25;
 console.log(pHealth)
     document.getElementById('enemyHealth').style.width =
       pHealth.toString() + 'px';
@@ -152,7 +151,7 @@ if(RivalSnoBlob.position.x + 5 >= player.position.x &&
 RivalSnoBlob.position.x <= player.position.x + 32 &&
 RivalSnoBlob.position.y >= player.position.y -8 &&
 RivalSnoBlob.position.y + 8<= player.position.y + 64 + 8){
-    rHealth -= 15;
+    rHealth -= 25;
     console.log(rHealth)
     document.getElementById('playerHealth').style.width =
       rHealth.toString() + 'px';
